@@ -6,7 +6,7 @@
 - Confirmar el **correo exacto** del primer administrador. No se deduce de la cuenta de GitHub, Supabase, Netlify o del nombre de una persona.
 - Registrar esa cuenta en `/acceso`, verificar su email y asignarle el rol desde una sesión autorizada en Supabase. El script `supabase/bootstrap-staff.sql` exige reemplazar explícitamente el correo, confirma una única cuenta verificada y no se ejecuta automáticamente.
 - Asignar a cada empleado su rol y sucursal: `waiter` (salón), `kitchen` (cocina/barra), `cashier` (caja). Solo `admin` puede operar ambas sucursales. Las cuentas nuevas son clientes sin acceso interno.
-- Configurar URL del sitio y redirecciones de Supabase Auth para el dominio publicado: `/club` y `/recuperar`. El correo de confirmación debe apuntar al dominio correcto. No desactivar confirmación de email para evitar este paso.
+- Supabase Auth ya tiene como Site URL `https://porter-brew-house-tucuman.netlify.app` y permite las redirecciones exactas `/club` y `/recuperar`. Si se cambia el dominio, actualizar estos valores. El correo de confirmación debe apuntar al dominio correcto. No desactivar confirmación de email para evitar este paso.
 - Validar recetas y videos propios/aprobados por cocina; cargar imágenes mediante su URL HTTPS. La carga directa de archivos a Storage queda pendiente.
 - Revisar las mesas reales, imprimir sus QR y hacer un servicio de prueba acompañado antes de habilitar pedidos digitales.
 - Confirmar alias/CBU oficial con Porter. La app solicita la referencia y caja debe verificar la acreditación antes de registrar la transferencia.

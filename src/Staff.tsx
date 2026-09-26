@@ -248,7 +248,7 @@ export function StaffShell() {
             desactualizados.
           </div>
         )}
-        <div className="staff-content">
+        <div className="staff-content" id="main">
           {allowed ? (
             <Outlet />
           ) : (

@@ -37,4 +37,6 @@ Portada, carta y panel se revisaron también con pantalla angosta: navegación m
 
 ## Límites de la validación
 
+Publicación inicial verificada en `https://porter-brew-house-tucuman.netlify.app`: HTML, CSS y JS respondieron 200, el bundle apunta a `oeiomiobhpkujxhentbj`, la portada y carta real se abren, y la demo de equipo se inicia separada. Las URLs de Auth quedaron guardadas para ese dominio, `/club` y `/recuperar`. No se creó un usuario real para probar la recepción de correos; espera la identidad del administrador.
+
 No se probó aún un turno con empleados reales, carta real, pagos Mercado Pago, reembolsos, facturación fiscal, hardware de impresión ni recuperación completa de backup. Se requiere piloto acompañado antes de habilitar ventas.

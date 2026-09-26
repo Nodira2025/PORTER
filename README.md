@@ -4,6 +4,10 @@ Primera versión funcional del ecosistema Porter: sitio público, pedidos por QR
 
 ## Estado
 
+- Web: https://porter-brew-house-tucuman.netlify.app
+- Demo del equipo: https://porter-brew-house-tucuman.netlify.app/equipo?demo=1
+- Código: https://github.com/Nodira2025/PORTER
+
 La migración inicial se aplicó con autorización expresa al proyecto **porter**, `oeiomiobhpkujxhentbj`, main/producción, el 25/09/2026 (26/09 UTC). Las pruebas de base de datos pasaron y revirtieron sus datos. Quedaron dos sucursales y 12 mesas iniciales por sucursal. **Los pedidos digitales y los puntos reales están desactivados**, sin productos, ventas ni administradores ficticios.
 
 La demo usa exclusivamente almacenamiento local del navegador. Abrir `/equipo?demo=1` para recorrer todos los módulos o `/carta?demo=1` para probar como comensal. No genera cobros ni pedidos en Supabase. “Reiniciar demo” vuelve a los datos de ejemplo.

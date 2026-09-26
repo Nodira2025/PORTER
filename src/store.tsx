@@ -3,6 +3,8 @@ import {
   useContext,
   useState,
   useEffect,
+  useLayoutEffect,
+  useRef,
   useCallback,
   type ReactNode,
 } from "react";
@@ -63,6 +65,13 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [connection, setConnection] = useState("Conectando");
   const [notice, setNotice] = useState("");
   const [guest, setGuestState] = useState<Guest | null>(null);
+  const contextVersion = useRef(0);
+  useLayoutEffect(() => {
+    contextVersion.current += 1;
+    setStaff(null);
+    setData(structuredClone(emptyData));
+    setLoading(true);
+  }, [demo, user?.id, branch]);
   const toast = useCallback((s: string) => setNotice(s), []);
   useEffect(() => {
     if (notice) {
@@ -107,6 +116,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setBranchState(b);
   };
   const refresh = useCallback(async () => {
+    const version = contextVersion.current;
     if (demo) {
       setData(demoRead());
       setStaff({ user_id: "demo-staff", role: "admin", branch_id: null });
@@ -153,6 +163,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         );
         member = members[0] ?? null;
       }
+      if (version !== contextVersion.current) return;
       setStaff(member);
       const result: Dataset = {
         ...structuredClone(emptyData),
@@ -266,14 +277,16 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         ]);
         Object.assign(result, { points, claims, reservations });
       }
+      if (version !== contextVersion.current) return;
       setData(result);
       setConnection("Conectado a Supabase");
       setError("");
     } catch (e) {
+      if (version !== contextVersion.current) return;
       setError(errorText(e));
       setConnection("Sin conexión");
     } finally {
-      setLoading(false);
+      if (version === contextVersion.current) setLoading(false);
     }
   }, [demo, user, branch]);
   useEffect(() => {
