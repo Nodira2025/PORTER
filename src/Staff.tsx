@@ -56,6 +56,7 @@ import {
 import { MenuPage } from "./Public";
 import { ReferenceMenu } from "./ReferenceMenu";
 import { DEMO_EMAIL } from "./demo-access";
+import { ProductPhotoField } from "./ProductPhotoField";
 import type { Order, Product, Recipe, Table } from "./types";
 
 const sections = [
@@ -1309,6 +1310,7 @@ function downloadCsv(name: string, rows: string[][]) {
 export function Catalog() {
   const { data, branch, save, toast } = useStore();
   const [edit, setEdit] = useState<Product | null>(null);
+  const [photo, setPhoto] = useState<Product | null>(null);
   const [search, setSearch] = useState("");
   return (
     <>
@@ -1389,6 +1391,9 @@ export function Catalog() {
                 <Button className="outline small" onClick={() => setEdit(p)}>
                   Editar
                 </Button>
+                <Button className="outline small" onClick={() => setPhoto(p)}>
+                  Cambiar foto
+                </Button>
               </div>
             );
           })}
@@ -1406,7 +1411,43 @@ export function Catalog() {
         onEdit={setEdit}
       />
       {edit && <ProductEditor product={edit} onClose={() => setEdit(null)} />}
+      {photo && (
+        <ProductPhotoEditor product={photo} onClose={() => setPhoto(null)} />
+      )}
     </>
+  );
+}
+function ProductPhotoEditor({
+  product,
+  onClose,
+}: {
+  product: Product;
+  onClose: () => void;
+}) {
+  const { save, toast } = useStore();
+  const [image, setImage] = useState(product.image_url ?? "");
+  return (
+    <Modal title={`Foto de ${product.name}`} onClose={onClose}>
+      <Form
+        onSubmit={async () => {
+          const url = image.trim();
+          if (url && !safeImage(url))
+            throw Error("La imagen debe usar una dirección HTTPS válida.");
+          await save("products", { ...product, image_url: url || null });
+          toast("Foto del producto actualizada.");
+          onClose();
+        }}
+      >
+        <ProductPhotoField
+          value={image}
+          onChange={setImage}
+          original={product.image_url ?? ""}
+        />
+        <Button type="submit" className="green full">
+          Guardar foto
+        </Button>
+      </Form>
+    </Modal>
   );
 }
 function ProductEditor({
@@ -1417,6 +1458,7 @@ function ProductEditor({
   onClose: () => void;
 }) {
   const { data, branch, save, toast } = useStore();
+  const [image, setImage] = useState(product.image_url ?? "");
   const recipe = data.recipes.find((r) => r.product_id === product.id);
   const a = data.availability.find(
     (a) => a.product_id === product.id && a.branch_id === branch,
@@ -1526,13 +1568,11 @@ function ProductEditor({
             />
           </Field>
         </div>
-        <Field label="Dirección de la imagen (HTTPS)">
-          <input
-            name="image"
-            defaultValue={product.image_url ?? ""}
-            placeholder="https://…"
-          />
-        </Field>
+        <ProductPhotoField
+          value={image}
+          onChange={setImage}
+          original={product.image_url ?? ""}
+        />
         <Field label="Etiquetas separadas por coma">
           <input name="tags" defaultValue={product.tags.join(", ")} />
         </Field>

@@ -2248,6 +2248,41 @@ td .text-link {
   object-fit: cover;
   flex-shrink: 0;
 }
+.product-photo-editor {
+  margin-block: 18px;
+}
+.product-photo-editor h3 {
+  margin-bottom: 8px;
+}
+.product-photo-preview {
+  min-height: 150px;
+  background: #f3f4ee;
+  border: 1px solid #dce3d1;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.product-photo-preview img {
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+}
+.product-photo-preview p {
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+}
+.product-photo-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-block: 12px;
+}
+.product-photo-editor > small {
+  display: block;
+  color: #596951;
+}
 .catalog-thumb svg {
   width: 24px;
 }

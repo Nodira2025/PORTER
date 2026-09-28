@@ -51,3 +51,7 @@ Los dispositivos deben tener conexión. Los pedidos reales no se encolan offline
 El QR impreso identifica la mesa; el personal abre una visita nueva. Cada dispositivo obtiene un token aleatorio privado y solo ve los pedidos creados con ese token. No se envía el token privado por enlaces. Cerrar la mesa invalida nuevas compras de esa visita. Una fotografía del QR puede compartirse: el control de apertura y la confirmación de salón limitan el abuso, pero no prueban presencia física. Para una operación de mayor exigencia agregar código de visita rotativo y límites por dispositivo/IP.
 
 Las 12 mesas por sucursal son una configuración inicial, pendiente de comparación con el salón real. Los roles y mesas se administran en Supabase en esta primera entrega; no hay un panel de altas de empleados todavía.
+
+# Cambiar fotos de productos
+
+En **Carta y recetas → Cambiar foto**, el administrador puede pegar el enlace directo HTTPS de una imagen pública, ver la vista previa y guardar. También puede quitarla o restaurar la anterior antes de guardar. La misma opción aparece al editar o completar una ficha. Esta versión admite enlaces, no subida de archivos desde el dispositivo. En la demo se guarda únicamente en ese navegador; en producción requiere una cuenta administradora autorizada.
