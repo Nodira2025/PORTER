@@ -49,9 +49,33 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
   const { demo, path, guest } = useStore();
   const [open, setOpen] = useState(false);
   const loc = useLocation();
+  const surface = useRef<HTMLDivElement>(null);
   useEffect(() => setOpen(false), [loc.pathname]);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 },
+    );
+    surface.current
+      ?.querySelectorAll(
+        ".intro-section, .experience, .reviews-section, .branches-section, .club-banner",
+      )
+      .forEach((el) => {
+        el.classList.add("porter-reveal");
+        observer.observe(el);
+      });
+    return () => observer.disconnect();
+  }, [loc.pathname]);
   return (
-    <>
+    <div className="porter-public" ref={surface}>
       <header className="public-header">
         <div className="container nav-inner">
           <Brand />
@@ -116,7 +140,7 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
           </span>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 export function Home() {
@@ -1155,8 +1179,16 @@ export function Access() {
                 return;
               }
               await refresh();
+              const { data: membership, error: membershipError } =
+                await supabase
+                  .from("staff_members")
+                  .select("user_id")
+                  .eq("user_id", result.data.user!.id)
+                  .eq("active", true)
+                  .maybeSingle();
+              if (membershipError) throw membershipError;
               toast("Sesión iniciada.");
-              navigate("/club");
+              navigate(membership ? "/equipo" : "/club");
             }}
           >
             {mode === "signup" && (

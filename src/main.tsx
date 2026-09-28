@@ -33,6 +33,7 @@ import {
   Reservations,
 } from "./Staff";
 import "./styles.css";
+import "./porter-brand.css";
 class ErrorBoundary extends Component<
   { children: ReactNode },
   { error: boolean }
@@ -93,6 +94,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             </Route>
             <Route path="/equipo" element={<StaffShell />}>
               <Route index element={<Dashboard />} />
+              <Route path="resumen" element={<Dashboard />} />
               <Route path="mesas" element={<Tables />} />
               <Route path="pedidos" element={<Orders />} />
               <Route path="nuevo" element={<NewOrder />} />

@@ -1,0 +1,674 @@
+/* Porter: charcoal, chalk, bottle green and the texture of a night at the bar. */
+.porter-public {
+  --cream: #111210;
+  --ink: #eeeae1;
+  --green: #244f36;
+  --green2: #38754c;
+  --lime: #e9eadf;
+  --muted: #b4b4a9;
+  --border: #3c4038;
+  color: var(--ink);
+  background-color: #111210;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' opacity='.045' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+.porter-public h1,
+.porter-public h2 {
+  color: #f8f5ed;
+}
+.porter-public h1 {
+  font-weight: 600;
+}
+.porter-public .public-header {
+  background: #0b0d0bee;
+  color: #f7f4eb;
+  border-bottom: 1px solid #ffffff20;
+  backdrop-filter: blur(16px);
+}
+.porter-public .brand {
+  color: #fff;
+}
+.porter-public .brand-symbol > span {
+  background: #0b0d0b;
+}
+.porter-public .header-cta {
+  border-color: #69735c;
+}
+.porter-public .public-header nav a {
+  position: relative;
+}
+.porter-public .public-header nav a::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background: #a9ba8f;
+  bottom: -7px;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+.porter-public .public-header nav a:hover::after {
+  transform: scaleX(1);
+}
+.porter-public .hero {
+  position: relative;
+  isolation: isolate;
+  background: #080a08;
+}
+.porter-public .hero-grid {
+  min-height: 700px;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  padding-block: 65px 80px;
+}
+.porter-public .hero-copy {
+  z-index: 2;
+}
+.porter-public .hero h1 {
+  font-size: clamp(62px, 7.2vw, 106px);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+.porter-public .hero h1 em {
+  color: #bfccb1;
+}
+.porter-public .hero p {
+  color: #dadbd4;
+}
+.porter-public .hero-visual {
+  position: absolute;
+  inset: 0 calc((min(1224px, 100vw - 96px) - 100vw) / 2) 0 35%;
+  min-height: 0;
+  z-index: -1;
+}
+.porter-public .hero-photo {
+  border-radius: 0;
+  object-position: center 46%;
+  filter: saturate(0.7) brightness(0.68);
+  animation: porter-arrive 1.3s ease-out both;
+}
+.porter-public .photo-grain {
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, #080a08 0%, #080a0890 28%, #080a0810 65%),
+    linear-gradient(0deg, #080a08, transparent 40%);
+}
+.porter-public .anniversary-seal {
+  left: auto;
+  right: 38px;
+  top: 34px;
+  width: 106px;
+  height: 106px;
+  border: 1px solid #ffffff60;
+  transform: rotate(5deg);
+}
+.porter-public .photo-label {
+  left: auto;
+  right: 35px;
+  width: 250px;
+  bottom: 45px;
+  color: #f2f2e8;
+}
+.porter-public .photo-label strong,
+.porter-public .photo-label > span {
+  color: #f2f2e8;
+}
+.porter-public .hero-copy > * {
+  animation: porter-rise 0.8s ease-out both;
+}
+.porter-public .hero-copy h1 {
+  animation-delay: 0.1s;
+}
+.porter-public .hero-copy p {
+  animation-delay: 0.2s;
+}
+.porter-public .hero-actions {
+  animation-delay: 0.3s;
+}
+.porter-public .hero-bottom {
+  color: #dbdfcf;
+  background: #1d3124;
+  border-block: 1px solid #9aae7433;
+  letter-spacing: 3px;
+  padding-block: 23px;
+}
+.porter-public .eyebrow,
+.porter-public .reference-label {
+  color: #b5c7a4;
+}
+.porter-public .intro-section p,
+.porter-public .section-top p {
+  color: #c2c3b9;
+}
+.porter-public .intro-section {
+  border-color: #ffffff20;
+}
+.porter-public .experience-card,
+.porter-public .review-card,
+.porter-public .branch-card,
+.porter-public .product-card,
+.porter-public .panel {
+  background: #1b1e19;
+  color: #eeece3;
+  border: 1px solid #ffffff20;
+}
+.porter-public .experience-card {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+.porter-public .experience-card:hover {
+  transform: translateY(-7px);
+  border-color: #90a976;
+}
+.porter-public .beer-card {
+  background:
+    radial-gradient(ellipse at 90% 0, #41523b55, transparent 65%), #191c17;
+}
+.porter-public .food-card {
+  background:
+    radial-gradient(ellipse at 90% 0, #805b2a55, transparent 65%), #1e1b16;
+}
+.porter-public .experience-card p {
+  color: #c7c9bd;
+}
+.porter-public .reviews-section,
+.porter-public .branches-section {
+  background: #0c0e0bd9;
+  color: #eeeae1;
+  border-block: 1px solid #ffffff12;
+}
+.porter-public .review-card h3,
+.porter-public .branch-card h3 {
+  color: #f3f0e5;
+}
+.porter-public .branch-card p,
+.porter-public .branch-card small,
+.porter-public .source-note,
+.porter-public .review-card p {
+  color: #b9beb1;
+}
+.porter-public .travel-panel {
+  border-color: #ffffff20;
+}
+.porter-public .club-banner {
+  background: linear-gradient(120deg, #213d2b, #0b130e);
+  border: 1px solid #8fa57455;
+}
+.porter-public .footer {
+  background: #050705;
+  color: #cccec5;
+  border-top: 1px solid #ffffff20;
+}
+.porter-public .footer-bottom {
+  color: #969e90;
+  border-color: #ffffff20;
+}
+.porter-public .button.green,
+.porter-public .button.lime {
+  background: #e3e8d9;
+  color: #182219;
+  border-color: #e3e8d9;
+}
+.porter-public .button {
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+.porter-public .button:hover {
+  transform: translateY(-2px);
+}
+.porter-public .button.outline {
+  color: #e2e5da;
+  border-color: #737f68;
+  background: transparent;
+}
+.porter-public .button.ghost,
+.porter-public .text-link {
+  color: #d4dfc5;
+}
+.porter-public input,
+.porter-public textarea,
+.porter-public select {
+  color: #f3f2ea;
+  background: #1d221b;
+  border-color: #535d4b;
+  color-scheme: dark;
+}
+.porter-public input::placeholder,
+.porter-public textarea::placeholder {
+  color: #a5ae9e;
+}
+.porter-public .info-banner,
+.porter-public .demo-strip {
+  background: #263021;
+  color: #e0e5d6;
+  border-color: #576c44;
+}
+.porter-public .category-tabs button {
+  color: #c1c9b7;
+}
+.porter-public .category-tabs button.selected {
+  background: #dce5d0;
+  color: #172116;
+}
+.porter-public .product-body p,
+.porter-public .pending-price,
+.porter-public .product-category {
+  color: #bccbac;
+}
+.porter-public .product-tags span {
+  background: #303829;
+  color: #dce5d0;
+}
+.porter-public .photo-placeholder {
+  background: #24281f;
+  color: #bbc9ad;
+}
+.porter-public .auth-content {
+  background: #141712;
+  color: #edece3;
+}
+.porter-public .modal {
+  background: #171d14;
+  color: #eceee3;
+  border: 1px solid #667456;
+}
+.porter-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.porter-reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* An authenticated arrival screen. Operational pages keep their existing routes. */
+.porter-welcome {
+  min-height: 100svh;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 36px 18px;
+  color: #f3f3ea;
+  background: #10130f;
+}
+.welcome-wallpaper {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, #080b09eb, #101910a0, #080b09dc),
+    linear-gradient(0deg, #070a08, transparent 60%),
+    url("/assets/porter-live.jpg") center 46% / cover;
+  animation: porter-arrive 1.2s ease-out both;
+}
+.porter-welcome::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.12;
+  background: repeating-linear-gradient(0deg, transparent 0 2px, #000 2px 3px);
+}
+.welcome-header {
+  width: min(960px, 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+.welcome-header .brand {
+  color: #fff;
+}
+.welcome-header .brand-symbol > span {
+  background: #151c15;
+}
+.welcome-header > span {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  line-height: 1.7;
+  border-left: 1px solid #90a480;
+  padding-left: 18px;
+}
+.welcome-status {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  width: min(820px, 100%);
+  padding: 20px 24px;
+  border-radius: 14px;
+  border: 1px solid #ffffff30;
+  background: #121a13a6;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 12px 40px #0004;
+}
+.welcome-status > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+}
+.welcome-status > div + div {
+  border-left: 1px solid #ffffff30;
+}
+.welcome-status strong {
+  display: block;
+  font-size: 22px;
+  line-height: 1.3;
+}
+.welcome-status small {
+  display: block;
+  font-size: 10px;
+  color: #c1cbb6;
+  margin-top: 5px;
+}
+.welcome-status svg {
+  color: #bed0aa;
+}
+.welcome-status .branch-select {
+  padding: 0;
+  margin-top: 5px;
+  background: transparent;
+  border-color: #ffffff40;
+  min-width: 0;
+}
+.porter-public .branch-select {
+  background: #1d221b;
+  border-color: #535d4b;
+}
+.welcome-status .branch-select svg {
+  display: none;
+}
+.welcome-status .branch-select select {
+  background: transparent;
+  color: #f3f3ea;
+  border-color: #ffffff30;
+  max-width: 180px;
+  color-scheme: dark;
+}
+.welcome-status select option {
+  background: #172316;
+}
+.welcome-person {
+  text-align: center;
+  padding: 32px 0;
+  width: min(620px, 100%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  animation: porter-rise 0.8s ease-out both;
+}
+.welcome-kicker {
+  color: #b6c6a2;
+  font-size: 9px;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+}
+.welcome-greeting {
+  font-size: 23px;
+  margin-bottom: 0;
+}
+.welcome-person h1 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 4.5vw, 60px);
+  margin-bottom: 12px;
+  color: #fff;
+  overflow-wrap: anywhere;
+}
+.welcome-description {
+  max-width: 390px;
+  font-size: 14px;
+  color: #d1d8ca;
+  margin-bottom: 20px;
+}
+.welcome-avatar {
+  width: 88px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  border: 3px solid #eef0e5;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #416348, #192b1d);
+  font-size: 32px;
+  box-shadow:
+    0 0 0 9px #ffffff08,
+    0 8px 35px #0007;
+}
+.welcome-profile {
+  min-height: 29px;
+  padding: 5px 13px;
+  font-size: 10px;
+  background: #eef0e4;
+  color: #21361e;
+  border-radius: 30px;
+  margin-top: -8px;
+  z-index: 1;
+}
+.welcome-role {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 16px 0;
+  color: #bdccac;
+}
+.welcome-start {
+  width: min(345px, 100%);
+  padding: 17px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+  background: linear-gradient(110deg, #3d6941, #244b2e);
+  border: 1px solid #9ab787;
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: 650;
+  box-shadow: 0 8px 30px #0005;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.welcome-start:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px #78995644;
+}
+.welcome-person > small {
+  font-size: 10px;
+  color: #b6c0ad;
+  margin-top: 14px;
+}
+.welcome-footer {
+  width: min(960px, 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ffffff25;
+  padding-top: 16px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #bfc8b6;
+  gap: 20px;
+}
+.welcome-footer > span,
+.welcome-footer a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.welcome-footer .button {
+  color: #edf0e3;
+  background: transparent;
+  padding: 7px;
+  min-height: 32px;
+  font-size: 11px;
+}
+.welcome-error {
+  color: #ffe0b2;
+  font-size: 12px;
+}
+.welcome-profile-details dt {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #61724f;
+}
+.porter-welcome .modal {
+  color: #19382c;
+}
+.porter-public .member-card {
+  background: #181f17;
+  color: #e2e7d7;
+  border: 1px solid #9aaa7d;
+  box-shadow: 0 16px 45px #0007;
+}
+.welcome-profile-details dd {
+  margin: 4px 0 20px;
+  overflow-wrap: anywhere;
+}
+.staff-sidebar {
+  background: #101710;
+}
+.staff-sidebar nav a.active {
+  background: #34462b;
+  color: #fff;
+}
+@keyframes porter-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes porter-arrive {
+  from {
+    opacity: 0.3;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 760px) {
+  .porter-public .hero-grid {
+    min-height: 690px;
+    display: block;
+    padding-block: 40px 100px;
+  }
+  .porter-public .hero-visual {
+    inset: 0 -24px 0 0;
+  }
+  .porter-public .hero-photo {
+    opacity: 0.55;
+  }
+  .porter-public .photo-grain {
+    background:
+      linear-gradient(90deg, #080a08d9, #080a0844),
+      linear-gradient(0deg, #080a08, transparent);
+  }
+  .porter-public .hero h1 {
+    font-size: clamp(57px, 12vw, 85px);
+  }
+  .porter-public .anniversary-seal {
+    width: 65px;
+    height: 65px;
+    right: 20px;
+    top: 20px;
+  }
+  .porter-public .photo-label {
+    bottom: 25px;
+    right: 25px;
+  }
+  .porter-public .hero-bottom {
+    font-size: 8px;
+    letter-spacing: 1px;
+    line-height: 2;
+    white-space: normal;
+  }
+  .porter-public .public-header nav.open {
+    background: #10170f;
+    border-color: #56684a;
+  }
+  .porter-welcome {
+    padding: 22px 20px 16px;
+  }
+  .welcome-header {
+    margin-bottom: 22px;
+  }
+  .welcome-header > span {
+    font-size: 7px;
+    letter-spacing: 1px;
+    padding-left: 10px;
+  }
+  .welcome-status {
+    grid-template-columns: 1fr 1fr;
+    padding: 16px 8px;
+  }
+  .welcome-status > div {
+    padding: 0 10px;
+    gap: 8px;
+  }
+  .welcome-status > div:last-child {
+    grid-column: 1/-1;
+    border-left: 0;
+    border-top: 1px solid #ffffff25;
+    padding-top: 12px;
+    margin-top: 12px;
+  }
+  .welcome-status > div:last-child > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .welcome-status strong {
+    font-size: 19px;
+  }
+  .welcome-status small {
+    font-size: 9px;
+  }
+  .welcome-status select {
+    max-width: 135px;
+    font-size: 12px;
+  }
+  .welcome-person {
+    padding-block: 27px;
+  }
+  .welcome-person h1 {
+    font-size: 40px;
+  }
+  .welcome-description {
+    font-size: 12px;
+  }
+  .welcome-footer {
+    letter-spacing: 0;
+    font-size: 8px;
+  }
+  .welcome-footer b {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .porter-public *,
+  .porter-welcome *,
+  .porter-public *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .porter-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

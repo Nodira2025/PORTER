@@ -57,11 +57,18 @@ import { MenuPage } from "./Public";
 import { ReferenceMenu } from "./ReferenceMenu";
 import { DEMO_EMAIL } from "./demo-access";
 import { ProductPhotoField } from "./ProductPhotoField";
+import { StaffWelcome } from "./StaffWelcome";
 import type { Order, Product, Recipe, Table } from "./types";
 
 const sections = [
   {
     path: "/equipo",
+    label: "Inicio",
+    icon: Beer,
+    roles: ["admin", "waiter", "kitchen", "cashier"],
+  },
+  {
+    path: "/equipo/resumen",
     label: "Resumen",
     icon: LayoutDashboard,
     roles: ["admin", "waiter", "kitchen", "cashier"],
@@ -152,6 +159,8 @@ export function StaffShell() {
         </Link>
       </div>
     );
+  if (loc.pathname === "/equipo" || loc.pathname === "/equipo/")
+    return <StaffWelcome />;
   const allowed =
     loc.pathname === "/equipo/nuevo"
       ? ["admin", "waiter", "cashier"].includes(staff.role)

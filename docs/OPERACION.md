@@ -54,4 +54,8 @@ Las 12 mesas por sucursal son una configuración inicial, pendiente de comparaci
 
 # Cambiar fotos de productos
 
+## Inicio del equipo
+
+Al ingresar a `/equipo`, las cuentas autorizadas ven una bienvenida con fondo de Porter, reloj de Tucumán, sucursal, pedidos en curso y perfil. **Iniciar** lleva a resumen (administración), mesas (salón), cocina (preparación) o caja según el rol asignado. El resumen está en `/equipo/resumen`; las demás rutas y permisos continúan vigentes. La demo mantiene datos ficticios locales. La portada pública utiliza una paleta oscura con texturas y animaciones que respetan la preferencia de movimiento reducido.
+
 En **Carta y recetas → Cambiar foto**, el administrador puede pegar el enlace directo HTTPS de una imagen pública, ver la vista previa y guardar. También puede quitarla o restaurar la anterior antes de guardar. La misma opción aparece al editar o completar una ficha. Esta versión admite enlaces, no subida de archivos desde el dispositivo. En la demo se guarda únicamente en ese navegador; en producción requiere una cuenta administradora autorizada.
