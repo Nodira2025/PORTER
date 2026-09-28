@@ -1,5 +1,11 @@
 # Validación de la primera entrega
 
+## Actualización de carta y acceso · 28/09/2026
+
+Se añadieron 72 referencias de productos sin precio ni estado vendible y siete láminas originales del destacado de Instagram. Build TypeScript/Vite y 8 pruebas unitarias aprobadas. Las pruebas incluyen unicidad de las fichas, precio desconocido, borrador oculto al completar y aislamiento de las credenciales demo.
+
+En navegador se verificó el ingreso con `usuario@porter.com`, la apertura de Carta y recetas, la búsqueda de Tequeños y su ficha con precio vacío obligatorio y “Visible en la carta” desmarcado. La carta pública muestra los productos históricos y el aviso de precios/disponibilidad a confirmar. No se crearon usuarios, roles ni pedidos reales en esta actualización.
+
 Fecha: 25/09/2026 Argentina (26/09 UTC).
 
 ## Automatizada

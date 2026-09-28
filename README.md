@@ -4,6 +4,8 @@ Primera versión funcional del ecosistema Porter: sitio público, pedidos por QR
 
 ## Estado
 
+Actualización 28/09/2026: se incorporó una carta de referencia con 72 productos de las historias destacadas de Porter, sin precios inventados, y acceso demo `usuario@porter.com` / `PorterDemo2026!` en `/acceso?demo=1`. Son credenciales públicas de demostración; no corresponden a una cuenta real ni tienen privilegios en Supabase.
+
 - Web: https://porter-brew-house-tucuman.netlify.app
 - Demo del equipo: https://porter-brew-house-tucuman.netlify.app/equipo?demo=1
 - Código: https://github.com/Nodira2025/PORTER

@@ -1,0 +1,109 @@
+.reference-menu .info-banner p {
+  margin: 5px 0 0;
+  line-height: 1.6;
+}
+.reference-menu .menu-toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+}
+.reference-menu .category-tabs {
+  flex-wrap: wrap;
+  overflow: visible;
+}
+.reference-menu .search-input {
+  width: 100%;
+  max-width: 440px;
+}
+.reference-grid .product-card {
+  justify-content: flex-start;
+}
+.reference-grid .product-body {
+  flex: 1;
+}
+.reference-grid .product-bottom {
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+.reference-photo {
+  position: relative;
+  overflow: hidden;
+  background: #eeede7;
+}
+.reference-photo img {
+  position: absolute;
+  height: auto;
+  max-width: none;
+  display: block;
+}
+.reference-label {
+  padding: 24px 24px 8px;
+  display: flex;
+  gap: 10px;
+  color: #68816d;
+  align-items: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.reference-grid .pending-price {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #59654a;
+}
+.reference-sheets summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style-position: inside;
+}
+.reference-sheets > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+.reference-sheets button {
+  background: none;
+  border: 1px solid var(--border, #ddd);
+  padding: 8px;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.reference-sheets button img {
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  background: #efefea;
+  border-radius: 4px;
+}
+.reference-sheets button span {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+}
+.reference-original {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+@media (max-width: 640px) {
+  .reference-menu .section-top {
+    align-items: flex-start;
+  }
+  .reference-menu .category-tabs {
+    gap: 6px;
+  }
+  .reference-menu .category-tabs button {
+    font-size: 11px;
+    padding: 9px 12px;
+  }
+  .reference-menu .info-banner {
+    align-items: flex-start;
+  }
+}

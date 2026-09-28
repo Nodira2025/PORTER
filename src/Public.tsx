@@ -37,6 +37,13 @@ import {
 } from "./components";
 import { catalogFor, cartTotal, money, dateTime } from "./domain";
 import type { Branch, CartLine, Order } from "./types";
+import { ReferenceMenu } from "./ReferenceMenu";
+import {
+  DEMO_EMAIL,
+  DEMO_PASSWORD,
+  isDemoEmail,
+  validateDemoAccess,
+} from "./demo-access";
 
 export function PublicShell({ children }: { children: React.ReactNode }) {
   const { demo, path, guest } = useStore();
@@ -569,6 +576,15 @@ export function MenuPage({ staffService }: { staffService?: string }) {
     setGuest(g);
     toast("Mesa de demostración abierta. Ya podés enviar un pedido.");
   };
+  if (
+    !demo &&
+    !staffService &&
+    !loading &&
+    !data.products.some((p) => p.active)
+  )
+    return (
+      <ReferenceMenu standalone existingIds={data.products.map((p) => p.id)} />
+    );
   return (
     <section className={staffService ? "" : "container menu-page"}>
       <div className="menu-heading">
@@ -696,6 +712,9 @@ export function MenuPage({ staffService }: { staffService?: string }) {
               </article>
             ))}
         </div>
+      )}
+      {!demo && !staffService && !loading && (
+        <ReferenceMenu existingIds={data.products.map((p) => p.id)} />
       )}
       {cart.length > 0 && (
         <button className="cart-bar" onClick={() => setCartOpen(true)}>
@@ -1021,7 +1040,8 @@ export function MyOrders() {
 }
 
 export function Access() {
-  const { user, staff, refresh, path, toast } = useStore();
+  const { user: realUser, demo, staff, refresh, path, toast } = useStore();
+  const user = demo ? null : realUser;
   const [mode, setMode] = useState<"login" | "signup" | "recovery">("login");
   const [sent, setSent] = useState(false);
   const navigate = useNavigate();
@@ -1040,6 +1060,22 @@ export function Access() {
       </div>
       <div className="auth-content">
         <Brand />
+        {demo && (
+          <div className="info-banner">
+            <div>
+              <strong>Acceso de demostración</strong>
+              <p>
+                Usuario: {DEMO_EMAIL}
+                <br />
+                Contraseña: {DEMO_PASSWORD}
+              </p>
+              <small>
+                Datos ficticios guardados en este navegador. No es una cuenta
+                real de Supabase.
+              </small>
+            </div>
+          </div>
+        )}
         <h1>
           {user
             ? "Tu cuenta"
@@ -1077,9 +1113,21 @@ export function Access() {
           </div>
         ) : (
           <Form
+            key={demo ? "demo" : mode}
             onSubmit={async (f) => {
-              if (!supabase) throw Error("Conexión no configurada.");
               const email = String(f.get("email")).trim();
+              if (demo || isDemoEmail(email)) {
+                if (mode !== "login")
+                  throw Error(
+                    "Este usuario es de demostración. Ingresá con la contraseña de prueba.",
+                  );
+                if (!validateDemoAccess(email, String(f.get("password"))))
+                  throw Error("Para la demo usá " + DEMO_EMAIL);
+                toast("Ingresaste a la demostración de Porter.");
+                navigate("/equipo?demo=1");
+                return;
+              }
+              if (!supabase) throw Error("Conexión no configurada.");
               if (mode === "recovery") {
                 const { error } = await supabase.auth.resetPasswordForEmail(
                   email,
@@ -1122,13 +1170,20 @@ export function Access() {
               </Field>
             )}
             <Field label="Correo electrónico">
-              <input name="email" type="email" autoComplete="email" required />
+              <input
+                name="email"
+                type="email"
+                autoComplete="email"
+                defaultValue={demo ? DEMO_EMAIL : undefined}
+                required
+              />
             </Field>
             {mode !== "recovery" && (
               <Field label="Contraseña">
                 <input
                   name="password"
                   type="password"
+                  defaultValue={demo ? DEMO_PASSWORD : undefined}
                   minLength={8}
                   autoComplete={
                     mode === "login" ? "current-password" : "new-password"
@@ -1153,7 +1208,7 @@ export function Access() {
             )}
           </Form>
         )}
-        {!user && (
+        {!user && !demo && (
           <div className="auth-switch">
             <button
               onClick={() => {
@@ -1173,8 +1228,11 @@ export function Access() {
             </button>
           </div>
         )}
-        <Link className="text-link" to="/equipo?demo=1">
-          Explorar la demostración sin cuenta <ArrowUpRight size={17} />
+        <Link className="text-link" to={demo ? "/acceso" : "/acceso?demo=1"}>
+          {demo
+            ? "Ingresar con una cuenta real"
+            : "Usar el acceso de demostración"}{" "}
+          <ArrowUpRight size={17} />
         </Link>
       </div>
     </section>

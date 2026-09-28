@@ -1,5 +1,16 @@
 # Operación y activación
 
+## Acceso de demostración
+
+Abrir `https://porter-brew-house-tucuman.netlify.app/acceso?demo=1`.
+
+- Usuario de ejemplo: `usuario@porter.com`
+- Contraseña pública de prueba: `PorterDemo2026!`
+
+Este acceso abre la demo existente en el navegador. No crea una cuenta de Supabase, no envía correos y no concede permisos reales. También se reconoce desde el formulario de acceso habitual. Los cambios de catálogo/caja/pedidos de la demo siguen siendo locales. Para un administrador real se mantiene el procedimiento de identidad confirmada descrito abajo.
+
+En **Carta y recetas** aparecen los 72 productos transcritos de Instagram, con precio pendiente y botón **Completar ficha**. La ficha exige un precio positivo y queda oculta hasta que se active expresamente. Las fotos de las láminas son referencia histórica; al publicar un producto se puede incorporar su fotografía individual actual.
+
 ## Antes del primer servicio
 
 - Recibir la carta vigente y los precios por sucursal. Los productos de demo son ilustrativos y nunca se importan a producción automáticamente.

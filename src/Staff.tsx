@@ -54,6 +54,8 @@ import {
   safeImage,
 } from "./domain";
 import { MenuPage } from "./Public";
+import { ReferenceMenu } from "./ReferenceMenu";
+import { DEMO_EMAIL } from "./demo-access";
 import type { Order, Product, Recipe, Table } from "./types";
 
 const sections = [
@@ -184,7 +186,7 @@ export function StaffShell() {
             <div>
               <strong>
                 {demo
-                  ? "Equipo de prueba"
+                  ? DEMO_EMAIL
                   : user?.user_metadata?.display_name || "Equipo Porter"}
               </strong>
               <small>
@@ -1399,6 +1401,10 @@ export function Catalog() {
           </Empty>
         )}
       </div>
+      <ReferenceMenu
+        existingIds={data.products.map((p) => p.id)}
+        onEdit={setEdit}
+      />
       {edit && <ProductEditor product={edit} onClose={() => setEdit(null)} />}
     </>
   );

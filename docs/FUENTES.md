@@ -1,5 +1,13 @@
 # Fuentes y material visual
 
+## Carta de referencia incorporada el 28/09/2026
+
+Se transcribieron 72 productos verificables del [destacado Menú](https://www.instagram.com/stories/highlights/18326954677116176/), que Instagram mostraba con una antigüedad de 134 semanas. La selección es histórica: no afirma que sea toda la carta vigente ni confirma disponibilidad por sucursal. Los precios se mantienen desconocidos (`null`); no se incorporaron importes inventados.
+
+Se recuperaron siete láminas originales en `public/assets/menu/`: entradas, para compartir, burgers (dos), opciones, ensaladas y papas. Las miniaturas de platos se muestran mediante encuadre CSS del archivo original, sin generar ni alterar las fotografías. El resto de productos se identificó en las láminas visibles de pizzas, mexicana, postres, tragos clásicos y gin. Cuando los ingredientes no pudieron leerse con certeza, la ficha conserva una descripción genérica.
+
+Los borradores viven en `src/reference-menu.ts`, separados de los productos vendibles de Supabase. Administración puede completar cada ficha con precio, fotografía e información vigente. Se guarda oculta inicialmente. No se activaron ventas ni se modificó el esquema de producción en esta actualización.
+
 Consulta pública del 25/09/2026, Tucumán, Argentina. Las redes y buscadores pueden mostrar información histórica; no se usan precios viejos como carta vigente.
 
 - [Instagram oficial](https://www.instagram.com/porter.brew.house/): identidad, publicaciones y bio.
